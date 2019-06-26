@@ -101,3 +101,63 @@ exports.handler = function(event, context, callback){
   });
 }
 ```
+
+### Get a client secret on Github
+
+1. Register for a client ID on [Github](https://github.com/settings/applications/new).
+
+![](https://github.com/king-melchizedek/Netlify-AWS-Lambda/raw/master/images/client_id_registration.PNG)
+
+2. Copy the Client ID and Client Secret to your api url.
+
+![](https://github.com/king-melchizedek/Netlify-AWS-Lambda/raw/master/images/client_id_secret.PNG)
+
+``` url
+https://api.github.com/users?client_id=a5c1aed823e638132792&client_secret=19c85a1d9b150792549a01a84fd75b61b01b84be
+```
+
+(Note: Github allows ~15 requests per hour without requiring a client ID / Secret.)
+
+### Link your lambda function to your Github client ID and Secret
+
+Install [Axios](https://github.com/axios/axios) locally
+
+``` bash
+npm i axios
+```
+
+Rewrite your lambda function to use Axios:
+
+``` js
+const axios = require('axios');
+
+exports.handler = function(event, context, callback){
+  const API_URL = 'https://api.github.com/users';
+  const API_CLIENT_ID = 'a5c1aed823e638132792';
+  const API_CLIENT_SECRET = '19c85a1d9b150792549a01a84fd75b61b01b84be';
+
+  const URL = `${API_URL}?client_id=${API_CLIENT_ID}&client_secret=${API_CLIENT_SECRET}`;
+
+  // Send user response.
+  const send = body => {
+    callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(body)
+    });
+  }
+
+  // Perform API call.
+  const getUsers = () => {
+    axios.get(URL)
+      .then(res => send(res.data))
+      .catch(err => send(err));
+  }
+
+  // Make sure method is GET.
+  if(event.httpMethod == 'GET') {
+    getUsers();
+  }
+}
+```
+
+Test function with a GET request in Postman.
