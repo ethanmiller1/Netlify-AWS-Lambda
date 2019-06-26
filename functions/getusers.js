@@ -1,9 +1,8 @@
 const axios = require('axios');
 
 exports.handler = function(event, context, callback){
-  const API_URL = 'https://api.github.com/users';
-  const API_CLIENT_ID = 'a5c1aed823e638132792';
-  const API_CLIENT_SECRET = '19c85a1d9b150792549a01a84fd75b61b01b84be';
+  // Set environment variables during deployment.
+  const { API_URL, API_CLIENT_ID, API_CLIENT_SECRET } = process.env;
 
   const URL = `${API_URL}?client_id=${API_CLIENT_ID}&client_secret=${API_CLIENT_SECRET}`;
 

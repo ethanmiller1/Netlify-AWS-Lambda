@@ -2,7 +2,7 @@
 
 A simple Node.js wep app to explore serverless lambda functions using Netlify.
 
-Based on Traversy Media's tutorial video [Serverless Lambda Functions](https://www.youtube.com/watch?v=drJwMlD9Mjo&list=PLYAz1Lwo4O59VpRXUKHUNvMSSHDXtawEG&index=4). Check out a clone of his github repository [here](https://github.com/akinhwan/netlify_aws_lambda).
+Based on Traversy Media's tutorial video [Serverless Lambda Functions](https://www.youtube.com/watch?v=drJwMlD9Mjo&list=PLYAz1Lwo4O59VpRXUKHUNvMSSHDXtawEG&index=4). Check out his Github repository [here](https://github.com/bradtraversy/netlify_lambda).
 
 ## Tutorial
 
@@ -185,3 +185,42 @@ headers: {
 ```
 
 You may need to restart your server to see results.
+
+### Deploy your app
+
+Replace your URL variables with an array that will be set with environment variables upon deployment.
+
+``` js
+const { API_URL, API_CLIENT_ID, API_CLIENT_SECRET } = process.env;
+```
+
+Change your front-end GET request to `/.netlify/functions/getUsers`.
+
+Stop your server with `Ctrl+C` and run the build command.
+
+``` bash
+npm run lambda-build
+```
+
+Now push your repository to Github.
+
+``` bash
+git add . && git commit -m "deploy app"
+```
+
+1. Create a [free account](https://app.netlify.com/?_ga=2.15886646.1249753372.1561518025-713509965.1561518025) with Netlify
+1. `New site from Git` > `Github`
+1. `Authorize Netlify by Netlify`
+1. Install Netlify on your personal account `Only select repositories`
+1. Choose `Netlify AWS-Lambda`
+1. `Show Advanced` > `New variable`
+
+| Key | Value |
+|-|-|
+|API_URL | https://<span></span>api.github<span></span>.com/users |
+|API_CLIENT_ID | a5c1aed823e638132792 |
+|API_CLIENT_SECRET | 19c85a1d9b150792549a01a84fd75b61b01b84be |
+
+Hint: Access your Client ID and Client Secret on the [developers](https://github.com/settings/developers) page.
+
+7. Deploy site

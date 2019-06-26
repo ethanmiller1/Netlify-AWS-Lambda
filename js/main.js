@@ -1,6 +1,6 @@
 // Make a request to the getUsers() function and return a promise.
 const fetchUsers = async () =>
-  await (await fetch("http://localhost:9000/getUsers")).json();
+  await (await fetch("/.netlify/functions/getUsers")).json();
 
 // Do something with the data returned by getUsers().
 fetchUsers().then(data => {
