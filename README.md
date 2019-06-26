@@ -4,6 +4,10 @@ A simple Node.js wep app to explore serverless lambda functions using Netlify.
 
 Based on Traversy Media's tutorial video [Serverless Lambda Functions](https://www.youtube.com/watch?v=drJwMlD9Mjo&list=PLYAz1Lwo4O59VpRXUKHUNvMSSHDXtawEG&index=4). Check out his Github repository [here](https://github.com/bradtraversy/netlify_lambda).
 
+## Demo
+
+Access a demonstration of the working application at this [custom Netlify link](https://heuristic-easley-f8ae16.netlify.com/).
+
 ## Tutorial
 
 Create a project directory and install netlify locally.
