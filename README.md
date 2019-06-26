@@ -2,7 +2,7 @@
 
 A simple Node.js wep app to explore serverless lambda functions using Netlify.
 
-Based on Traversy Media's tutorial video [Serverless Lambda Functions](https://www.youtube.com/watch?v=drJwMlD9Mjo&list=PLYAz1Lwo4O59VpRXUKHUNvMSSHDXtawEG&index=4). Check out a clone of his github repository [here](https://github.com/akinhwan/netlify_aws_lambda/blob/master/package.json).
+Based on Traversy Media's tutorial video [Serverless Lambda Functions](https://www.youtube.com/watch?v=drJwMlD9Mjo&list=PLYAz1Lwo4O59VpRXUKHUNvMSSHDXtawEG&index=4). Check out a clone of his github repository [here](https://github.com/akinhwan/netlify_aws_lambda).
 
 ## Tutorial
 
@@ -108,7 +108,7 @@ exports.handler = function(event, context, callback){
 
 ![](https://github.com/king-melchizedek/Netlify-AWS-Lambda/raw/master/images/client_id_registration.PNG)
 
-2. Copy the Client ID and Client Secret to your api url.
+2. Copy the Client ID and Client Secret to your API url.
 
 ![](https://github.com/king-melchizedek/Netlify-AWS-Lambda/raw/master/images/client_id_secret.PNG)
 
@@ -161,3 +161,7 @@ exports.handler = function(event, context, callback){
 ```
 
 Test function with a GET request in Postman.
+
+### Create a front-end user interface
+
+Create `index.html` in root, and a folder called `js` for our front-end JavaScript, containing `main.js`.
