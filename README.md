@@ -165,3 +165,23 @@ Test function with a GET request in Postman.
 ### Create a front-end user interface
 
 Create `index.html` in root, and a folder called `js` for our front-end JavaScript, containing `main.js`. (See files in repository.)
+
+### Oops, we got an error!
+
+Cross-Origin Resource Sharing (CORS) should have blocked your client app from accessing server data and provided this error message:
+
+``` bash
+Access to fetch at 'http://localhost:9000/getUsers' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+```
+
+Circumvent CORS policy for development testing by adding a `headers` value in your user response.
+
+``` js
+headers: {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers':
+    'Origin, X-Requested-With, Content-Type, Accept'
+},
+```
+
+You may need to restart your server to see results.
