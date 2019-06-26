@@ -164,4 +164,4 @@ Test function with a GET request in Postman.
 
 ### Create a front-end user interface
 
-Create `index.html` in root, and a folder called `js` for our front-end JavaScript, containing `main.js`.
+Create `index.html` in root, and a folder called `js` for our front-end JavaScript, containing `main.js`. (See files in repository.)
